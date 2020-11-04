@@ -1,0 +1,11 @@
+---
+- name: Copy all files
+  hosts: webservers
+  become: no
+  tasks:
+  - name: copy all le files
+    copy:
+      src: "{{ item }}"
+      dest: "~/homework/"
+    with_fileglob: 
+    - "/etc/ansible/*"
